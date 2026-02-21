@@ -5,9 +5,8 @@ public class Assignment2 {
     public static int findMin(int[] arr) {
         int min = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
+            if (arr[i] < min)
                 min = arr[i];
-            }
         }
         return min;
     }
@@ -15,9 +14,8 @@ public class Assignment2 {
     public static int findMax(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > max) {
+            if (arr[i] > max)
                 max = arr[i];
-            }
         }
         return max;
     }
@@ -26,64 +24,35 @@ public class Assignment2 {
         int min = arr[0];
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
-            }
-            if (arr[i] > max) {
-                max = arr[i];
-            }
+            if (arr[i] < min) min = arr[i];
+            if (arr[i] > max) max = arr[i];
         }
         return new int[]{min, max};
     }
 
     public static void main(String[] args) {
         if (args.length > 0) {
-            int[] cmdArray = new int[args.length];
-            for (int i = 0; i < args.length; i++) {
-                cmdArray[i] = Integer.parseInt(args[i]);
-            }
+            int[] arr = new int[args.length];
+            for (int i = 0; i < args.length; i++)
+                arr[i] = Integer.parseInt(args[i]);
 
-            System.out.println("=== Command Line Array ===");
-            System.out.print("Array: ");
-            printArray(cmdArray);
-            System.out.println("Min: " + findMin(cmdArray));
-            System.out.println("Max: " + findMax(cmdArray));
-
-            int[] both = findMinAndMax(cmdArray);
-            System.out.println("Min and Max together: [" + both[0] + ", " + both[1] + "]");
-            System.out.println();
+            System.out.println("Command line - Min: " + findMin(arr) + ", Max: " + findMax(arr));
+            int[] both = findMinAndMax(arr);
+            System.out.println("Both at once - Min: " + both[0] + ", Max: " + both[1]);
         }
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of elements: ");
         int n = scanner.nextInt();
+        int[] arr = new int[n];
 
-        int[] scanArray = new int[n];
-        System.out.println("Enter " + n + " elements:");
-        for (int i = 0; i < n; i++) {
-            scanArray[i] = scanner.nextInt();
-        }
+        for (int i = 0; i < n; i++)
+            arr[i] = scanner.nextInt();
 
-        System.out.println("\n=== Scanner Array ===");
-        System.out.print("Array: ");
-        printArray(scanArray);
-        System.out.println("Min: " + findMin(scanArray));
-        System.out.println("Max: " + findMax(scanArray));
-
-        int[] both = findMinAndMax(scanArray);
-        System.out.println("Min and Max together: [" + both[0] + ", " + both[1] + "]");
+        System.out.println("Scanner - Min: " + findMin(arr) + ", Max: " + findMax(arr));
+        int[] both = findMinAndMax(arr);
+        System.out.println("Both at once - Min: " + both[0] + ", Max: " + both[1]);
 
         scanner.close();
-    }
-
-    private static void printArray(int[] arr) {
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-            if (i < arr.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
     }
 }
