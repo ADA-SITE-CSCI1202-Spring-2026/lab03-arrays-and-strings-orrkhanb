@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Assignment 2 - Greatest and Smallest Elements
- */
 public class Assignment2 {
 
     public static int findMin(int[] arr) {
@@ -40,7 +37,6 @@ public class Assignment2 {
     }
 
     public static void main(String[] args) {
-        // Part (i): from command line arguments
         if (args.length > 0) {
             int[] cmdArray = new int[args.length];
             for (int i = 0; i < args.length; i++) {
@@ -58,7 +54,6 @@ public class Assignment2 {
             System.out.println();
         }
 
-        // Part (ii): from Scanner input
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of elements: ");
         int n = scanner.nextInt();

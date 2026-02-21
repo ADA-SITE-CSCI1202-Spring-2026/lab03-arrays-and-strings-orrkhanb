@@ -1,16 +1,13 @@
 import java.util.Scanner;
 
-/**
- * Assignment 7 - String Reversed
- */
 public class Assignment7 {
 
     public static String reverse(String str) {
-        char[] chars = new char[str.length()];
-        for (int i = 0; i < str.length(); i++) {
-            chars[i] = str.charAt(str.length() - 1 - i);
+        StringBuilder reversed = new StringBuilder();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed.append(str.charAt(i));
         }
-        return new String(chars);
+        return reversed.toString();
     }
 
     public static void main(String[] args) {
